@@ -1,0 +1,47 @@
+{
+  "git": {
+    "default_remote_branch": "main",
+    "github_org": "elo-enterprises",
+    "hash": "fa7915697fd9b905f4d81178e09df6d8f4400ad7",
+    "is_github": true,
+    "repo": "git@github.com:elo-enterprises/pynchon.git",
+    "repo_name": "pynchon",
+    "repo_url": "https://github.com/elo-enterprises/pynchon",
+    "root": "/home/matt/code/elo/pynchon"
+  },
+  "jinja": {
+    "includes": [
+      "docs/templates"
+    ]
+  },
+  "project": {
+    "name": "pynchon",
+    "root": ".",
+    "subproject": {}
+  },
+  "pynchon": {
+    "version": "2022.12.6.18.29",
+    "plugins": [
+      "scaffolding",
+      "fixme"
+    ],
+    "config_folder": ".",
+    "config_source": [
+      "pyproject.toml"
+    ],
+    "docs_root": "docs",
+    "root": ".",
+    "working_dir": "/home/matt/code/elo/pynchon/tests/fixtures/projects/with-toml-config"
+  },
+  "pypi": {
+    "name": "Public PyPI",
+    "docs_url": "https://pypi.org/",
+    "base_url": "https://pypi.org/project"
+  },
+  "python": {
+    "version": "3.8.10",
+    "entrypoints": [],
+    "is_package": false,
+    "package": {}
+  }
+}

@@ -1,0 +1,225 @@
+<table>
+  <tr>
+    <td colspan=2><strong>
+    {{python.package.name}}
+      </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td width=15%><img src=docs/img/icon.png style="width:150px"></td>
+    <td>
+      <br/><br/>
+      <a href=https://pypi.python.org/pypi/{{python.package.name}}/><img src="https://img.shields.io/pypi/l/pynchon.svg"></a>
+      <a href=https://pypi.python.org/pypi/{{python.package.name}}/><img src="https://badge.fury.io/py/{{python.package.name}}.svg"></a>
+      {%for action in github.actions%}<a href="{{action.url}}"><img src="{{action.url}}/badge.svg"></a>{%endfor%}
+    </td>
+  </tr>
+</table>
+
+---------------------------------------------------------------------------------
+
+{{markdown_toc(__template__, level=2)}}
+
+---------------------------------------------------------------------------------
+
+## Overview
+
+Pynchon is a library, tool, and extensible framework that helps with generating documentation, working with diagrams, rendering templates, and maybe other aspects of project management.  It's useful in general but has extra features for working with python projects, including helpers for code-transformation and autogenerating documentation.
+
+This code is still experimental and interface stability is not yet guaranteed.. make sure to pin pynchon at specific versions for your project. =)
+
+---------------------------------------------------------------------------------
+
+## Features
+
+* Terraform-style plan / apply workflows
+* Some support for parallel execution in applies
+* Tight integration with [Jinja](#) for rendering templates
+* Plugin framework for extensions
+* Plugins have config
+* Helpers for parsing Markdown, INI, JSON, JSON5 and TOML
+* Support for diagramming tools like [Mermaid](#mermaid-plugin), [DrawIO](#drawio-plugin), & [pandoc](#pandoc-plugin)
+* Friendly output for machines and for humans
+
+---------------------------------------------------------------------------------
+
+## Installation
+
+{{python.package.name.title()}} is on PyPI, so to get the latest:
+
+```bash
+pip install {{python.package.name}}
+```
+
+Or, for developers:
+
+```bash
+# for ssh
+git clone {{github.repo_ssh_url}}
+
+# or for http
+# git clone {{github.repo_url}}
+
+cd {{python.package.name}}
+pip install -e .
+```
+
+---------------------------------------------------------------------------------
+
+## Quick Start
+
+### Utility Invocation
+
+If you're more interested in tools than a framework, some functionality is available without completely loading pynchon.  Most things like that are available somewhere under [pynchon.util](src/pynchon/util), and they can be used with module-invocations like `python -mpynchon.util ...`.
+
+A few random examples:
+
+```bash
+# Helpers for loading/converting config from many file formats:
+$ python -mpynchon.util.text loadf --help
+{{bash("python -mpynchon.util.text loadf --help")}}
+
+# Helpers for rendering Jinja templates
+$ python -mpynchon.util.text render jinja --help
+{{bash("python -mpynchon.util.text render jinja --help")}}
+
+# Makefile parser.
+# Capable of pulling make-targets even across nested/included Makefiles.
+# Also parses documentation, and can enrich documentation to markdown.
+$ python -mpynchon.util.makefile --help
+{{bash("python -mpynchon.util.makefile --help")}}
+```
+
+### CLI, Plugins, & Config
+
+For most functionality, you'll want to use the main `pynchon` tool.  Functionality here is provided via plugins, where **every plugin is a subcommand for the main CLI**.  There are several plugins which are provided by default, and you can see the plugins in use with the following command:
+
+```bash
+# Shows the default plugin list, with no pynchon config present
+$ pynchon plugins list
+{{bash("cd /tmp; pynchon plugins list")}}
+
+# Adds the mermaid plugin, which is non-default, using the command-line.
+# (Note that this is still without any file-based config)
+$ pynchon --plugins mermaid mermaid --help
+{{bash("pynchon --plugins mermaid mermaid --help")}}
+```
+
+To get started with file-based config, run `pynchon init` in your project folder to create `.pynchon.json5`.  From here you can modify `pynchon.plugins` to use a custom set of plugins, and configure the plugins as well.
+
+Every plugin has config, which can be overriden, which may include defaults, or which is dynamically determined from the current context.  To show current plugin config, you can always use `pynchon <plugin_name> cfg`.  Below are some examples with the `github` plugin (see the [Github Plugin docs](#github-plugin) for more information about this plugin in particular.)
+
+```bash
+
+# Outside of a github repository,
+# config is empty and not very interesting
+$ pynchon github cfg
+{
+  "enterprise": false,
+  "actions": [],
+  "org_name": null,
+  "org_url": null,
+  "raw_url": null,
+  "repo_ssh_url": null,
+  "repo_url": null
+}
+
+# Inside of a github repository,
+# lots of useful information
+$ pynchon github cfg
+{
+  "enterprise": false,
+  "actions": [ ... ],
+  "org_name": "elo-enterprises",
+  "org_url": "https://github.com/elo-enterprises",
+  "raw_url": "https://raw.githubusercontent.com/elo-enterprises/pynchon",
+  "repo_ssh_url": "git@github.com:elo-enterprises/pynchon.git",
+  "repo_url": "https://github.com/elo-enterprises/pynchon"
+}
+```
+
+You can see the the configuration schema for any given plugin like this:
+
+```bash
+
+# default output is JSON schema
+$ pynchon plugin schema github
+{
+  "title": "github",
+  "type": "object",
+  "properties": {
+    "apply_hooks": {
+      "title": "Apply Hooks",
+      "description": "Hooks to run before/after `apply` for this plugin",
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "enterprise": {
+      "title": "Enterprise",
+      "default": false,
+      "type": "boolean"
+    }
+  }
+}
+
+# markdown output is also supported
+$ pynchon plugin schema github --markdown
+
+# you can also pipe markdown output into the preview tool
+$ pynchon plugin schema github --markdown | pynchon markdown preview /dev/stdin
+```
+
+---------------------------------------------------------------------------------
+
+### Jinja Plugin
+
+There's tight integration with the [jinja templating library](https://jinja.palletsprojects.com/en/3.1.x/), and defaults for rendering includes, default variables, etc can be configured via `.pynchon.json5`.  See the configuration schema below:
+
+{{bash('pynchon plugins schema jinja --markdown')}}
+
+**Crucially, the jinja context also includes the entire pynchon configuration stack for all plugins,** i.e. the current output of `pynchon cfg`.  This gives it access to context provided by other plugins.  For example the `{%raw%}{{github.repo_url}}{%endraw%}` variable can be used in templates, and will be rendered as expected whenever the [Github Plugin](#github-plugin) is present and ready.
+
+Here's a typical workflow:
+
+```bash
+# find *.j2 files under the project directory
+$ pynchon jinja list
+
+# make a plan to render every file that was returned by `list` above.
+# this will use the jinja plugin config in `.pynchon.json5` to determine
+# appropriate calls to `pynchon jinja render ...`
+$ pynchon jinja plan
+
+# Render every jinja template we can find.
+$ pynchon jinja apply
+```
+
+---------------------------------------------------------------------------------
+
+### Makefile Plugin
+
+```bash
+$ pynchon makefile --help
+{{bash('pynchon makefile --help')}}
+```
+
+{{bash('pynchon plugins schema makefile --markdown')}}
+
+---------------------------------------------------------------------------------
+
+{% for plugin_name in 'dockerhub github git pypi markdown mermaid pandoc drawio dot mkdocs parse src'.split() %}
+{%set plugin_cmd = 'pynchon ' + plugin_name + ' --help'%}
+### {{plugin_name.title()}} Plugin
+
+```bash
+$ {{plugin_cmd}}
+{{bash(plugin_cmd)}}
+```
+
+{{bash('pynchon plugins schema ' + plugin_name + ' --markdown')}}
+
+---------------------------------------------------------------------------------
+{%endfor%}

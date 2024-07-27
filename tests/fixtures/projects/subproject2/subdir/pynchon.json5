@@ -1,0 +1,30 @@
+//
+//  pynchon is a docs-generation tool.
+//
+//  this config is used implicitly with
+//  any direct invocations of the `pynchon` CLI
+//  tool, sometimes via `make docs` (which drives the CLI)
+{
+  "src_root": "src",
+  "pkg_name": "pynchon",
+  "docs_root": "docs",
+  "src_root": "src",
+  "dot":{},
+  "api":{
+    "skip_private_methods": true,
+    "skip_patterns": [],
+  },
+  "jinja":{
+    "includes": ["{{docs_root}}"],
+  },
+  "pypi": {
+    "name":"The public PyPI"
+  },
+  "scaffold": {
+      "{{git.root}}/tox.ini":{
+          "name": "use-tox.ini from {{git.root}}/tox.ini",
+          "patterns": [
+            "{{pynchon.working_dir}}/**/tox.ini"],
+      },
+    }
+}

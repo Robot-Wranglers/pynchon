@@ -1,0 +1,12 @@
+# pynchon is a docs-generation tool.
+# this config is used implicitly with
+# any direct invocations of the `pynchon` CLI
+# tool, or sometimes via `make docs` (which drives the CLI)
+[tool.pynchon]
+# src_root = "src"
+# pkg_name = "pynchon"
+# generate = ["cli", "api"]
+# render = ["dot"]
+# api = { skip_private_methods = true }
+# pypi = {name="The Public PyPI"}
+plugins = ["scaffolding", "fixme"]

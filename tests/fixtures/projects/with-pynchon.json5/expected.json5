@@ -1,0 +1,59 @@
+{
+  "git": {
+    "default_remote_branch": "main",
+    "github_org": "elo-enterprises",
+    "hash": "fa7915697fd9b905f4d81178e09df6d8f4400ad7",
+    "is_github": true,
+    "repo": "git@github.com:elo-enterprises/pynchon.git",
+    "repo_name": "pynchon",
+    "repo_url": "https://github.com/elo-enterprises/pynchon",
+    "root": "/home/matt/code/elo/pynchon"
+  },
+  "jinja": {
+    "includes": [
+      ".makefiles/docs"
+    ]
+  },
+  "project": {
+    "name": "pynchon",
+    "root": ".",
+    "subproject": {}
+  },
+  "pynchon": {
+    "version": "2022.12.6.18.29",
+    "plugins": [],
+    "config_folder": ".",
+    "config_source": [
+      "pynchon.json5"
+    ],
+    "docs_root": "docs",
+    "root": ".",
+    "working_dir": "/home/matt/code/elo/pynchon/tests/fixtures/projects/with-pynchon.json5",
+    "src_root": "src",
+    "pkg_name": "pynchon",
+    "dot": {},
+    "api": {
+      "skip_private_methods": true,
+      "skip_patterns": []
+    },
+    "jinja": {
+      "includes": [
+        ".makefiles/docs"
+      ]
+    },
+    "pypi": {
+      "name": "The public PyPI"
+    }
+  },
+  "pypi": {
+    "name": "The public PyPI",
+    "docs_url": "https://pypi.org/",
+    "base_url": "https://pypi.org/project"
+  },
+  "python": {
+    "version": "3.8.10",
+    "entrypoints": {},
+    "is_package": false,
+    "package": {}
+  }
+}
