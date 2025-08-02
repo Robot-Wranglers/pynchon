@@ -158,7 +158,10 @@ class Markdown(models.DockerWrapper, models.Planner):
                 with open(tmpstdin, "w") as fhandle:
                     LOGGER.critical(f"writing tmp file {tmpstdin}")
                     fhandle.write(sys.stdin.read())
-            docker.run(*dargs, **dkwargs)
+            try:
+                docker.run(*dargs, **dkwargs)
+            except (Exception,) as exc:
+                LOGGER.critical("failed to generate markdown preview with docker")
         # FIXME: glow is awesome but using it from docker seems to strip color
         # docker_image = self["viewer_docker_image"]
         #         # viewer_args = " ".join(self["viewer_args"])

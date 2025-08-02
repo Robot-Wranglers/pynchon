@@ -12,95 +12,67 @@ SRC_ROOT := $(shell dirname ${THIS_MAKEFILE})
 
 NO_COLOR:=\033[0m
 COLOR_GREEN=\033[92m
+SHORT_SHA=$(shell git rev-parse --short HEAD)
 
-PYPI_PROJECT_NAME:=pynchon
-DOCKER_IMAGE_NAME?=pynchon
+# DOCKER_IMAGE_NAME?=${py.pkg_name}
+pynchon.tag=robotwranglers/${pynchon.img}
+pynchon.img=pynchon
+py.pkg_name=pynchon
+
+include .cmk/compose.mk 
+$(call mk.import.plugins, py.mk actions.mk)
+
+$(call docker.import, \
+        namespace=docker.pynchon \
+        file=Dockerfile img=${pynchon.img})
 
 .PHONY: build docs
 
-init: py-init
-build: py-build docker-build
-clean: py-clean docker-clean
+init: flux.stage/initializing py.init
+build: flux.stage/building py.pkg.build docker.pynchon.build
+	docker tag ${pynchon.img} ${pynchon.tag}:latest
+	docker tag ${pynchon.img} ${pynchon.tag}:${SHORT_SHA}
 
-docker-clean:
-	docker rmi $(DOCKER_IMAGE_NAME) >/dev/null || true
+clean: flux.stage/cleaning \
+	py.clean docker.rmi/$(pynchon.img)
 
-SHORT_SHA=$(shell git rev-parse --short HEAD)
-docker-build docker.build build.docker:	
-	docker build -t $(DOCKER_IMAGE_NAME) .
-	docker tag $(DOCKER_IMAGE_NAME) robotwranglers/pynchon:latest
-	docker tag $(DOCKER_IMAGE_NAME) robotwranglers/pynchon:${SHORT_SHA}
+docker-shell: docker.pynchon.shell
 
-docker.push:
-	docker push robotwranglers/pynchon:latest
-	docker push robotwranglers/pynchon:${SHORT_SHA}
+# docker.push:
+# 	docker push ${pynchon.tag}:latest
+# 	docker push ${pynchon.tag}:${SHORT_SHA}
 
-docker-shell:
-	docker run -it --rm -v `pwd`:/workspace -w /workspace \
-		--entrypoint bash $(DOCKER_IMAGE_NAME)
+docker.pynchon.test: docker.pynchon.dispatch/self.test.docker
+self.test.docker:; set -x && pynchon plugins list && bash tests/smoke/test.sh
 
-docker-test:
-	docker run --rm -v `pwd`:/workspace -w /workspace --entrypoint sh $(DOCKER_IMAGE_NAME) -x -c "pynchon--help"
+version: py.pkg.version
 
-py-init:
-	# $(call _announce_target, $@)
-	set -x \
-	; pip install build \
-	; pip install --quiet -e .[dev] \
-	; pip install --quiet -e .[testing] \
-	; pip install --quiet -e .[publish]
+release: clean normalize static-analysis test pypi.release
 
-py-build: py-clean
-	export version=`python setup.py --version` \
-	&& (git tag $$version \
-	|| printf 'WARNING: Failed to git-tag with release-tag (this is normal if tag already exists).\n' > /dev/stderr) \
-	&& printf "# WARNING: file is maintained by automation\n\n__version__ = \"$${version}\"\n\n" \
-	| tee src/${PYPI_PROJECT_NAME}/_version.py \
-	&& python -m build
+$(call tox.import, \
+        normalize static-analysis itest stest utest dtest )
 
-py-clean:
-	rm -rf tmp.pypi* dist/* build/* \
-	&& rm -rf src/*.egg-info/
-	find . -name '*.tmp.*' -delete
-	find . -name '*.pyc' -delete
-	find . -name  __pycache__ -delete
-	find . -type d -name .tox | xargs -n1 -I% bash -x -c "rm -rf %"
-	rmdir build || true
-
-version:
-	@python setup.py --version
-
-pypi-release:
-	PYPI_RELEASE=1 make build \
-	&& twine upload \
-	--user $${PYPI_USER} \
-	--password $${PYPI_TOKEN} \
-	dist/*
-
-release: clean normalize static-analysis test pypi-release
-
-tox-%:
-	tox -e ${*}
-
-normalize: tox-normalize
-lint static-analysis: tox-static-analysis
-smoke-test stest: tox-stest
-test-integrations itest: tox-itest
-utest test-units: tox-utest
-dtest: tox-dtest
+# normalize: tox/normalize
+lint: tox/static-analysis
+smoke-test: stest
+test-integrations: itest
+test-units: utest
 docs-test: dtest
-test: test-units test-integrations smoke-test
+test: flux.stage/testing \
+	py.test docker.pynchon.test
+py.test: test-units test-integrations smoke-test
+
 iterate: clean normalize lint test
 
-plan: docs-plan
-plan-docs: docs-plan
+# plan: docs-plan
+# plan-docs: docs-plan
+# docs-plan:
+# 	@# Run from tox, not vice versa 
+# 	pynchon src plan 
+# 	pynchon docs plan
+# 	pynchon python-api plan
+# 	pynchon python-cli plan
 
-docs-plan:
-	@# Run from tox, not vice versa 
-	pynchon src plan 
-	pynchon docs plan
-	pynchon python-api plan
-	pynchon python-cli plan
 docs: docs-apply
 docs-apply apply:
 	@# Run from tox, not vice versa 

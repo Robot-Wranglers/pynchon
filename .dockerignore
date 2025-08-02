@@ -1,4 +1,3 @@
-# Git
 .git
 .gitignore
 .github
@@ -9,7 +8,7 @@
 .taskcluster.yml
 
 # Docker
-docker-compose.yml
+#docker-compose.yml
 .docker
 
 # Byte-compiled / optimized / DLL files
@@ -22,26 +21,34 @@ __pycache__/
 */*/*.py[cod]
 */*/*/*.py[cod]
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
-env/
 build/
 develop-eggs/
 dist/
 downloads/
 eggs/
+.eggs/
 lib/
 lib64/
 parts/
 sdist/
 var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-.eggs/
+MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -56,11 +63,16 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.nox/
 .coverage
+.coverage.*
 .cache
 nosetests.xml
 coverage.xml
-.tmp.*
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
 
 # Translations
 *.mo
@@ -68,6 +80,16 @@ coverage.xml
 
 # Django stuff:
 *.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
 
 # Sphinx documentation
 docs/_build/
@@ -75,34 +97,64 @@ docs/_build/
 # PyBuilder
 target/
 
-# Virtual environment
-.env/
-.venv/
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
 venv/
+ENV/
+env.bak/
+venv.bak/
 
-# PyCharm
-.idea
+# Spyder project settings
+.spyderproject
+.spyproject
 
-# Python mode for VIM
+# Rope project settings
 .ropeproject
-*/.ropeproject
-*/*/.ropeproject
-*/*/*/.ropeproject
 
-# Vim swap files
-*.swp
-*/*.swp
-*/*/*.swp
-*/*/*/*.swp
+# mkdocs documentation
+/site
 
-tox.ini
-Dockerfile
-Makefile
-img/
-build/
-*.md
-*.md.j2
-[.]*
-docs/
-tests/
-LICENSE
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+src/pynchon/_version.py
+.DS_Store
+
+# Ignore dynaconf secret files
+.secrets.*
+tests/fixtures/graph.png
+.tmp.*
+.flux.*
