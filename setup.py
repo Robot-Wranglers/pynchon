@@ -1,5 +1,4 @@
-""" setup.py for pynchon
-"""
+"""setup.py for pynchon"""
 
 import os
 

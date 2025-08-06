@@ -10,14 +10,12 @@ THIS_MAKEFILE := $(abspath $(firstword $(MAKEFILE_LIST)))
 THIS_MAKEFILE := `python3 -c 'import os,sys;print(os.path.realpath(sys.argv[1]))' ${THIS_MAKEFILE}`
 SRC_ROOT := $(shell dirname ${THIS_MAKEFILE})
 
-NO_COLOR:=\033[0m
-COLOR_GREEN=\033[92m
 SHORT_SHA=$(shell git rev-parse --short HEAD)
 
 # DOCKER_IMAGE_NAME?=${py.pkg_name}
-pynchon.tag=robotwranglers/${pynchon.img}
-pynchon.img=pynchon
 py.pkg_name=pynchon
+pynchon.img=pynchon
+pynchon.tag=robotwranglers/${pynchon.img}
 
 include .cmk/compose.mk 
 $(call mk.import.plugins, py.mk actions.mk)
@@ -28,31 +26,37 @@ $(call docker.import, \
 
 .PHONY: build docs
 
+##░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
 init: flux.stage/initializing py.init
 build: flux.stage/building py.pkg.build docker.pynchon.build
 	docker tag ${pynchon.img} ${pynchon.tag}:latest
 	docker tag ${pynchon.img} ${pynchon.tag}:${SHORT_SHA}
 
-clean: flux.stage/cleaning \
-	py.clean docker.rmi/$(pynchon.img)
-
-docker-shell: docker.pynchon.shell
-
-# docker.push:
-# 	docker push ${pynchon.tag}:latest
-# 	docker push ${pynchon.tag}:${SHORT_SHA}
-
-docker.pynchon.test: docker.pynchon.dispatch/self.test.docker
-self.test.docker:; set -x && pynchon plugins list && bash tests/smoke/test.sh
+clean: flux.stage/clean \
+	py.clean docker.pynchon.clean
 
 version: py.pkg.version
 
 release: clean normalize static-analysis test pypi.release
 
+shell shell.docker: docker.pynchon.shell
+##░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+# docker.push:
+# 	docker push ${pynchon.tag}:latest
+# 	docker push ${pynchon.tag}:${SHORT_SHA}
+
+docker.pynchon.clean: docker.rmi/$(pynchon.img)
+docker.pynchon.test: docker.pynchon.build docker.pynchon.dispatch/self.test.docker
+self.test.docker:; set -x && pynchon plugins list && bash tests/smoke/test.sh
+
+
+py.test: test-units test-integrations smoke-test
+
 $(call tox.import, \
         normalize static-analysis itest stest utest dtest )
 
-# normalize: tox/normalize
 lint: tox/static-analysis
 smoke-test: stest
 test-integrations: itest
@@ -60,9 +64,9 @@ test-units: utest
 docs-test: dtest
 test: flux.stage/testing \
 	py.test docker.pynchon.test
-py.test: test-units test-integrations smoke-test
 
 iterate: clean normalize lint test
+##░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
 # plan: docs-plan
 # plan-docs: docs-plan
