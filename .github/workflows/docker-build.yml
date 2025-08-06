@@ -4,9 +4,10 @@ on:
   # push:
   #   branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "mainline" ]
     paths-ignore:
       - '**.md'
+      - 'docs/**'
 permissions:
   contents: read
 jobs:
@@ -16,6 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build
-        run: make build.docker
-      # - name: Smoke-Test
-      #   run: make smoke-test
+        run: make docker.stat docker.pynchon.build 
+      - name: Smoke-Test
+        run: make docker.pynchon.test

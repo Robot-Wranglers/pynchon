@@ -134,3 +134,4 @@ src/pynchon/_version.py
 .secrets.*
 tests/fixtures/graph.png
 .tmp.*
+.flux.*
