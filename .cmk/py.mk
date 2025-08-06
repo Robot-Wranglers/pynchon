@@ -2,12 +2,14 @@
 # py.mk: Automation helpers for python, pip, and tox.
 ###############################################################################
 
-pip.install=pip install --quiet -e
+pip.install=set -x && pip install $${pip_args:-} $(shell [ "$${verbose:-0}" = "0" ] && echo "--quiet" || echo ) -e
 
 pip.build:; set -x; pip install build
 
 pip.install/%: mk.require.tool/pip
-	set -x; ${pip.install} .[${*}]
+	@# NB: Pass `verbose=1` to avoid pip --quiet
+	$(call log.target, verbose=$${verbose:-0} ${sep} pip_args=$${pip_args:-})
+	${pip.install} .[${*}]
 
 pip.release pypi.release: mk.require.tool/twine mk.assert/PYPI_USER,PYPI_TOKEN
 	PYPI_RELEASE=1 ${make} py.build \
