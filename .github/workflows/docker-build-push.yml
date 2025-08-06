@@ -55,4 +55,5 @@ jobs:
         echo "🐳 Image pushed successfully!"
         echo "To pull this image, run:"
         echo "docker pull ${{ fromJSON(steps.meta.outputs.json).tags[0] }}"
-        echo "all tags: ${{ fromJSON(steps.meta.outputs.json).tags }}"
+        echo "docker pull ${{ fromJSON(steps.meta.outputs.json).tags[1] }}"
+        echo "docker pull ${{ fromJSON(steps.meta.outputs.json).tags[2] }}"
