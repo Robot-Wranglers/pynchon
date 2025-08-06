@@ -40,6 +40,7 @@ jobs:
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
         tags: |
+          type=date,pattern={{date 'YYYY.MM.DD'}}
           type=ref,event=branch
           type=sha
     - name: Build and push Docker image
@@ -54,3 +55,4 @@ jobs:
         echo "🐳 Image pushed successfully!"
         echo "To pull this image, run:"
         echo "docker pull ${{ fromJSON(steps.meta.outputs.json).tags[0] }}"
+        echo "all tags: ${{ fromJSON(steps.meta.outputs.json).tags }}"
