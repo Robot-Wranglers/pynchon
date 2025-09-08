@@ -1,5 +1,6 @@
 """pynchon.models.planner"""
 
+import os
 import typing
 
 from pynchon import abcs, cli
@@ -264,7 +265,7 @@ class ResourceManager(Manager):
 
         try:
             include_patterns = self["include_patterns"]
-            root = self["root"]
+            root = self["root"] or os.getcwd()
         except (KeyError,) as exc:
             self.logger.critical(
                 f"{self.__class__} tried to use self.list(), but does not follow protocol"

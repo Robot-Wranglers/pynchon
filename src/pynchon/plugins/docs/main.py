@@ -1,5 +1,5 @@
 """pynchon.plugins.docs.main"""
-
+import os
 from pynchon.util.os import invoke
 from pynchon.plugins.docs.opener import OpenerMixin
 
@@ -145,7 +145,7 @@ class DocsMan(models.ResourceManager, OpenerMixin):
     def plan(self, config=None):
         """Creates a plan for this plugin"""
         plan = super(self.__class__, self).plan(config=config)
-        rsrc = self.config["root"]
+        rsrc = self.config["root"] or os.getcwd()
         if not abcs.Path(rsrc).exists():
             plan.append(
                 self.goal(resource=rsrc, type="mkdir", command=f"mkdir -p {rsrc}")
