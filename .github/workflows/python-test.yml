@@ -17,11 +17,14 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - name: Set Up Python
         uses: actions/setup-python@v3
         with:
-          python-version: "3.9"         
+          python-version: "3.11"
       - name: Install Deps
         run: make init
       - name: Static-Analysis
