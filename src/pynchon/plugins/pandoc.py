@@ -1,5 +1,4 @@
-""" pynchon.plugins.pandoc
-"""
+"""pynchon.plugins.pandoc"""
 
 from fleks import cli
 

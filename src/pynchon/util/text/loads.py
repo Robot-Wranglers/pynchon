@@ -1,14 +1,14 @@
-""" pynchon.util.text.loads
+"""pynchon.util.text.loads
 
-    Helpers for loading data structures from strings
+Helpers for loading data structures from strings
 """
 
 import json as json_mod
 
+from pynchon.util import lme, typing
+
 import yaml as modyaml
 import pyjson5 as modjson5
-
-from pynchon.util import lme, typing
 
 LOGGER = lme.get_logger(__name__)
 

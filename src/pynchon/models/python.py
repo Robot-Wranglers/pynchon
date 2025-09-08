@@ -1,10 +1,9 @@
-""" pynchon.models.python
-"""
-
-from fleks.models import BaseModel
+"""pynchon.models.python"""
 
 from pynchon import abcs
 from pynchon.util import lme, typing
+
+from fleks.models import BaseModel
 
 LOGGER = lme.get_logger(__name__)
 

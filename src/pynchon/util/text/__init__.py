@@ -1,5 +1,5 @@
-""" pynchon.util.text
-    Utilities for parsing, generating or manipulating text
+"""pynchon.util.text
+Utilities for parsing, generating or manipulating text
 """
 
 from . import dumps, loadf, loads  # noqa

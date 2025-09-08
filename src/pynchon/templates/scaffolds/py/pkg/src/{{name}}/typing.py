@@ -1,2 +1,1 @@
-""" {{name}}.typing
-"""
+"""{{name}}.typing"""

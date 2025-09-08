@@ -1,15 +1,15 @@
-""" pynchon.plugins.drawio
+"""pynchon.plugins.drawio
 
-    A Wrapper for docker-containers that
-    provide the "drawio" diagramming utility
+A Wrapper for docker-containers that
+provide the "drawio" diagramming utility
 
-    Live Cloud Version:
-        https://app.diagrams.net/
-    Local Server:
-        https://hub.docker.com/r/jgraph/drawio
-        https://www.drawio.com/blog/diagrams-docker-app
-    CLI Tools:
-        https://github.com/rlespinasse/docker-drawio-desktop-headless
+Live Cloud Version:
+    https://app.diagrams.net/
+Local Server:
+    https://hub.docker.com/r/jgraph/drawio
+    https://www.drawio.com/blog/diagrams-docker-app
+CLI Tools:
+    https://github.com/rlespinasse/docker-drawio-desktop-headless
 """
 
 import webbrowser

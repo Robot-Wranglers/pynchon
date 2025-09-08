@@ -1,9 +1,8 @@
-""" pynchon.plugins.python.libcst
-"""
-
-from fleks import cli, tagging
+"""pynchon.plugins.python.libcst"""
 
 from pynchon.util.os import invoke
+
+from fleks import cli, tagging
 
 from pynchon import abcs, events, models  # noqa
 from pynchon.util import lme, python, typing  # noqa

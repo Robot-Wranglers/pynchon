@@ -1,5 +1,4 @@
-""" pynchon.plugins.dockerhub
-"""
+"""pynchon.plugins.dockerhub"""
 
 import webbrowser
 

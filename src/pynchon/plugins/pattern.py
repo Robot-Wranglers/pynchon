@@ -1,18 +1,18 @@
-""" pynchon.plugins.pattern
+"""pynchon.plugins.pattern
 
-    See also:
-        https://github.com/cookiecutter/cookiecutter/issues/784
+See also:
+    https://github.com/cookiecutter/cookiecutter/issues/784
 """
 
 import os
-
-from fleks import cli, tagging
 
 from pynchon import abcs, constants, models
 from pynchon.api import render
 from pynchon.util import lme, text, typing
 from pynchon.util.os import invoke
 from pynchon.util.files.diff import str_diff
+
+from fleks import cli, tagging
 
 LOGGER = lme.get_logger(__name__)
 

@@ -1,17 +1,16 @@
-""" pynchon.models.planning
-"""
+"""pynchon.models.planning"""
 
 import typing
 import collections
 import concurrent.futures
 
-import shil
-from fleks import app
-from fleks.models import BaseModel
-
 from pynchon import abcs
 from pynchon.app import app as pynchon_app
 from pynchon.util.os import invoke
+
+import shil
+from fleks import app
+from fleks.models import BaseModel
 
 from pynchon.util import lme, typing  # noqa
 

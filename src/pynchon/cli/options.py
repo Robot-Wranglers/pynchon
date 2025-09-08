@@ -1,5 +1,4 @@
-""" pynchon.cli.options
-"""
+"""pynchon.cli.options"""
 
 from pynchon.cli import click
 

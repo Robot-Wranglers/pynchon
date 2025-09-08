@@ -1,2 +1,1 @@
-""" CLI for {{name}}
-"""
+"""CLI for {{name}}"""

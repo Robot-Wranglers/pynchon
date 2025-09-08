@@ -1,2 +1,1 @@
-""" pynchon.plugins.api
-"""
+"""pynchon.plugins.api"""

@@ -1,9 +1,8 @@
-""" pynchon.plugins.makefile
-"""
-
-from fleks import cli, tagging
+"""pynchon.plugins.makefile"""
 
 from pynchon.util.makefile import parse as makefile_parse
+
+from fleks import cli, tagging
 
 from pynchon import abcs, api, events, models  # noqa
 from pynchon.util import lme, typing  # noqa

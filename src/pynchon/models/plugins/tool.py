@@ -1,4 +1,4 @@
-""" pynchon.models.plugins.tool """
+"""pynchon.models.plugins.tool"""
 
 from pynchon import api, cli, events  # noqa
 from pynchon.util import lme, typing  # noqa

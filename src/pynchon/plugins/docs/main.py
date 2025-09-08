@@ -1,13 +1,12 @@
-""" pynchon.plugins.docs.main
-"""
+"""pynchon.plugins.docs.main"""
+import os
+from pynchon.util.os import invoke
+from pynchon.plugins.docs.opener import OpenerMixin
 
 import fleks
 import gripe
 from fleks import cli, tagging
 from memoized_property import memoized_property
-
-from pynchon.util.os import invoke
-from pynchon.plugins.docs.opener import OpenerMixin
 
 from pynchon import abcs, api, events, models  # noqa
 from pynchon.util import files, lme, typing  # noqa
@@ -146,7 +145,7 @@ class DocsMan(models.ResourceManager, OpenerMixin):
     def plan(self, config=None):
         """Creates a plan for this plugin"""
         plan = super(self.__class__, self).plan(config=config)
-        rsrc = self.config["root"]
+        rsrc = self.config["root"] or os.getcwd()
         if not abcs.Path(rsrc).exists():
             plan.append(
                 self.goal(resource=rsrc, type="mkdir", command=f"mkdir -p {rsrc}")

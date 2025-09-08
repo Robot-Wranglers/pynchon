@@ -1,5 +1,4 @@
-""" pynchon.abcs.attrdict
-"""
+"""pynchon.abcs.attrdict"""
 
 from pynchon.util import lme, typing
 

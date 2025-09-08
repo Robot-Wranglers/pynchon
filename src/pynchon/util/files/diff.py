@@ -1,5 +1,4 @@
-""" pynchon.util.files.diff
-"""
+"""pynchon.util.files.diff"""
 
 import difflib
 

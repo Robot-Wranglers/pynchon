@@ -1,2 +1,1 @@
-""" pynchon.util.config
-"""
+"""pynchon.util.config"""

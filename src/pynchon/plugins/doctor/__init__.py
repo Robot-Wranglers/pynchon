@@ -1,2 +1,1 @@
-""" pynchon.plugins.doctor.__init__
-"""
+"""pynchon.plugins.doctor.__init__"""

@@ -1,10 +1,10 @@
-""" pynchon.codemod.docstrings.base """
+"""pynchon.codemod.docstrings.base"""
 
 import argparse
 
-from libcst.codemod import CodemodContext
-
 from pynchon.util import lme
+
+from libcst.codemod import CodemodContext
 
 LOGGER = lme.get_logger(__name__)
 

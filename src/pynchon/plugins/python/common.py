@@ -1,5 +1,4 @@
-"""
-"""
+""" """
 
 from pynchon import abcs, models  # noqa
 

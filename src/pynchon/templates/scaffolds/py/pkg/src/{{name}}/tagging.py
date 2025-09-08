@@ -1,4 +1,4 @@
-""" {{name}}.tagging: 
+"""{{name}}.tagging:
 
-    Holds runtime-object tagging details for this library.
+Holds runtime-object tagging details for this library.
 """

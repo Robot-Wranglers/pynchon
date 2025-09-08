@@ -1,10 +1,9 @@
-""" pynchon.util.files CLI
-"""
+"""pynchon.util.files CLI"""
+
+from pynchon.cli import common
 
 import shimport
 from fleks.util.tagging import tags
-
-from pynchon.cli import common
 
 from fleks.cli import click, options  # noqa
 

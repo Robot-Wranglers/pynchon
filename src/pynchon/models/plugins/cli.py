@@ -1,5 +1,4 @@
-""" pynchon.models.plugins.cli
-"""
+"""pynchon.models.plugins.cli"""
 
 import functools
 

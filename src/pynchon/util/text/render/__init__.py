@@ -1,15 +1,15 @@
-""" pynchon.util.text.render
+"""pynchon.util.text.render
 
-    Helpers for rendering content
+Helpers for rendering content
 """
 
 import os
 import sys
 
+from pynchon.util.os import invoke
+
 from fleks.cli import click, options
 from fleks.util.tagging import tags
-
-from pynchon.util.os import invoke
 
 from pynchon.util import lme, text, typing  # noqa
 

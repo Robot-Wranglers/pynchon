@@ -1,12 +1,12 @@
-""" pynchon.util.text.dumps """
+"""pynchon.util.text.dumps"""
 
 import json as modjson
 
-import yaml as modyaml
-from fleks import models
-
 from pynchon import abcs
 from pynchon.util import lme, text
+
+import yaml as modyaml
+from fleks import models
 
 LOGGER = lme.get_logger(__name__)
 

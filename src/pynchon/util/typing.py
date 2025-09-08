@@ -1,4 +1,4 @@
-""" {{pkg}}.util.types
+"""{{pkg}}.util.types
 
 This module collects common imports and annotation-types, i.e.
 various optional/composite types used in type-hints, underneath

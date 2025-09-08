@@ -1,5 +1,4 @@
-""" pynchon.plugins.cicd
-"""
+"""pynchon.plugins.cicd"""
 
 import webbrowser
 

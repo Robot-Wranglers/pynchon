@@ -1,2 +1,1 @@
-""" pynchon.plugins.hooks
-"""
+"""pynchon.plugins.hooks"""

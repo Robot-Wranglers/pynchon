@@ -1,5 +1,4 @@
-""" pynchon.core
-"""
+"""pynchon.core"""
 
 import os
 

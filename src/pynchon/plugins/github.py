@@ -1,5 +1,4 @@
-""" pynchon.plugins.github
-"""
+"""pynchon.plugins.github"""
 
 import webbrowser
 

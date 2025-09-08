@@ -1,5 +1,4 @@
-""" pynchon.plugins.markdown
-"""
+"""pynchon.plugins.markdown"""
 
 import marko
 from fleks import tagging

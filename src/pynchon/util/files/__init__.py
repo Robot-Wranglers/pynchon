@@ -1,13 +1,12 @@
-""" pynchon.util.files
-"""
+"""pynchon.util.files"""
 
 import re
 import glob
 import functools
 
-import shil
-
 from pynchon import abcs, cli
+
+import shil
 
 from pynchon.util import lme, os, typing  # noqa
 

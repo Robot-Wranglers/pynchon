@@ -1,4 +1,4 @@
-""" {{name}}.lme
+"""{{name}}.lme
 
 Logging, metrics and events
 """

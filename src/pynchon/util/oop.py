@@ -1,5 +1,4 @@
-""" {{pkg}}.util.classproperty
-"""
+"""{{pkg}}.util.classproperty"""
 
 from . import typing
 

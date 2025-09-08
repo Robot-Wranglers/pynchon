@@ -1,5 +1,4 @@
-""" tests.integration.test_imports
-"""
+"""tests.integration.test_imports"""
 
 
 def test_imports():

@@ -1,6 +1,6 @@
-""" pynchon.util.text.dumpf
+"""pynchon.util.text.dumpf
 
-    Helpers for loading data structures from files
+Helpers for loading data structures from files
 """
 
 import sys

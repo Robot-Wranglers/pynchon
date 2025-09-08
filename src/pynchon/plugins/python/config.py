@@ -1,2 +1,1 @@
-""" pynchon.plugins.python.config
-"""
+"""pynchon.plugins.python.config"""

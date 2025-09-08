@@ -1,15 +1,15 @@
-""" pynchon.util.text.loadf
+"""pynchon.util.text.loadf
 
-    Helpers for loading data structures from files
+Helpers for loading data structures from files
 """
 
 import os
 
-import tomli as tomllib  # NB: tomllib only available in py3.11
-from fleks.cli import click, options
-
 from pynchon.util.os import invoke
 from pynchon.util.text import loads
+
+import tomli as tomllib  # NB: tomllib only available in py3.11
+from fleks.cli import click, options
 
 from pynchon.util import lme, text, typing  # noqa
 

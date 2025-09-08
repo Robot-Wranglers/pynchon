@@ -1,5 +1,4 @@
-""" pynchon.util.os.pids
-"""
+"""pynchon.util.os.pids"""
 
 import shimport
 

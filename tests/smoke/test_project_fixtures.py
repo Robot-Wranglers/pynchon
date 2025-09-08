@@ -1,5 +1,4 @@
-""" tests for `pynchon` CLI
-"""
+"""tests for `pynchon` CLI"""
 
 # from pynchon.util import testing
 #

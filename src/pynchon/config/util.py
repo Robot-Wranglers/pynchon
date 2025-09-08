@@ -1,5 +1,4 @@
-""" pynchon.config.util
-"""
+"""pynchon.config.util"""
 
 import functools
 import collections

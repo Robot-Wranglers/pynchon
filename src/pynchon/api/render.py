@@ -1,19 +1,19 @@
-""" pynchon.api.render
+"""pynchon.api.render
 
-    Basically this is core jinja-rendering stuff.
+Basically this is core jinja-rendering stuff.
 
-    Looking for CLI entrypoints?  See pynchon.util.text.render
-    Looking for the JinjaPlugin?  See pynchon.plugins.jinja
+Looking for CLI entrypoints?  See pynchon.util.text.render
+Looking for the JinjaPlugin?  See pynchon.plugins.jinja
 """
 
 import os
 import functools
 
-from jinja2 import Environment  # Template,; UndefinedError,
-from jinja2 import FileSystemLoader, StrictUndefined
-
 from pynchon import abcs, constants, events
 from pynchon.util.os import invoke
+
+from jinja2 import Environment  # Template,; UndefinedError,
+from jinja2 import FileSystemLoader, StrictUndefined
 
 import jinja2  # noqa
 
@@ -211,9 +211,9 @@ def get_template(
     )
     if template_path and "md" in all_extensions:
         LOGGER.warning("template is markdown, trying to parse metadata")
-        import markdown
-
         from pynchon.util.text import loads
+
+        import markdown
 
         try:
             # https://python-markdown.github.io/extensions/meta_data/#accessing-the-meta-data

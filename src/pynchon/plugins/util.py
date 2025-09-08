@@ -1,5 +1,4 @@
-""" pynchon.plugins.util
-"""
+"""pynchon.plugins.util"""
 
 from pynchon.util import lme, typing  # noqa
 

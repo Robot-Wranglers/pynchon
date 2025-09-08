@@ -1,10 +1,9 @@
-""" pynchon.plugins.git
-"""
-
-from fleks import tagging
+"""pynchon.plugins.git"""
 
 from pynchon import abcs, models
 from pynchon.util import files, lme, os, typing
+
+from fleks import tagging
 
 LOGGER = lme.get_logger(__name__)
 

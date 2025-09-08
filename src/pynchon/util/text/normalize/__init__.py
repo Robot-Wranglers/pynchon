@@ -1,4 +1,4 @@
-""" pynchon.util.text.normalize """
+"""pynchon.util.text.normalize"""
 
 import re
 

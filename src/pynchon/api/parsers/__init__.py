@@ -1,2 +1,1 @@
-""" pynchon.api.parsers
-"""
+"""pynchon.api.parsers"""

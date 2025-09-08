@@ -1,5 +1,4 @@
-""" pynchon.util
-"""
+"""pynchon.util"""
 
 from pynchon import constants
 

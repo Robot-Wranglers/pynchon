@@ -1,5 +1,4 @@
-""" pynchon.api.python
-"""
+"""pynchon.api.python"""
 
 import functools
 

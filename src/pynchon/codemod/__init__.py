@@ -1,1 +1,1 @@
-""" pynchon.codemod """
+"""pynchon.codemod"""

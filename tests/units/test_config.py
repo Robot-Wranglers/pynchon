@@ -1,5 +1,4 @@
-""" tests.units.test_config
-"""
+"""tests.units.test_config"""
 
 # from pynchon.util import lme, text
 # from pynchon.config import initialized

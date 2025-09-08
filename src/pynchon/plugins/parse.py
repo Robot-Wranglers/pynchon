@@ -1,5 +1,4 @@
-""" pynchon.plugins.parse
-"""
+"""pynchon.plugins.parse"""
 
 import shimport
 

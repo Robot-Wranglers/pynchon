@@ -1,5 +1,4 @@
-""" pynchon.util.os
-"""
+"""pynchon.util.os"""
 
 # from . import models
 

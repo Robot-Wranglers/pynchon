@@ -1,5 +1,4 @@
-""" pynchon.plugins.project
-"""
+"""pynchon.plugins.project"""
 
 from fleks.util import tagging  # noqa
 

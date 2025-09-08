@@ -1,5 +1,4 @@
-""" pynchon.models.plugins.docker
-"""
+"""pynchon.models.plugins.docker"""
 
 from pynchon import abcs
 from pynchon.cli import click
