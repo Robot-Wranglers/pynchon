@@ -2,6 +2,7 @@
 
 import os
 from fnmatch import fnmatch
+from pathlib import Path as BasePath
 
 from pynchon.util import lme, typing
 
@@ -10,7 +11,7 @@ from fleks.models import JSONEncoder
 LOGGER = lme.get_logger(__name__)
 
 
-class Path(typing.PathType):
+class Path(type(BasePath())):
     """ """
 
     def write(self, content: str) -> None:
@@ -22,7 +23,6 @@ class Path(typing.PathType):
         """ """
         if not self.exists():
             raise ValueError(f"Cannot read nonexistant file @ {str(self)}")
-        # LOGGER.critical(f'opening "{self}" for read..')
         with open(str(self)) as fhandle:
             content = fhandle.read()
         return content
@@ -56,19 +56,11 @@ class Path(typing.PathType):
                 return match
 
     def match_glob(self, pattern):
-        """
-
-        :param pattern:
-
-        """
+        """ """
         return fnmatch(str(self), str(pattern)) and pattern
 
     def has_file(self, fname) -> bool:
-        """
-
-        :param fname:
-
-        """
+        """ """
         return self.absolute() in [p.absolute() for p in Path(fname).parents]
 
     def list(self) -> typing.List[str]:
