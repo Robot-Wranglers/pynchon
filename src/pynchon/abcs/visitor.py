@@ -1,13 +1,12 @@
-""" pynchon.abcs.visitor
-"""
+"""pynchon.abcs.visitor"""
 
 import copy
 from types import MappingProxyType
 
-import pydash
-
 from pynchon import abcs
 from pynchon.util import lme
+
+import pydash
 
 LOGGER = lme.get_logger(__name__)
 

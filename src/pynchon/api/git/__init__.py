@@ -1,2 +1,1 @@
-""" pynchon.api.git
-"""
+"""pynchon.api.git"""

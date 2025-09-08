@@ -1,5 +1,4 @@
-""" pynchon.plugins.mkdocs
-"""
+"""pynchon.plugins.mkdocs"""
 
 import os
 import urllib
@@ -7,12 +6,12 @@ import webbrowser
 import urllib.parse
 from pathlib import Path
 
+from pynchon.plugins import util as plugin_util
+from pynchon.util.text import loadf
+
 import yaml
 import fleks
 from fleks import tagging
-
-from pynchon.plugins import util as plugin_util
-from pynchon.util.text import loadf
 
 from pynchon import abcs, api, events, models  # noqa
 from pynchon.util import lme, typing  # noqa

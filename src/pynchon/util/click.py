@@ -1,1 +1,1 @@
-""" pynchon.util.click """
+"""pynchon.util.click"""

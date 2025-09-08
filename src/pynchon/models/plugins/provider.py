@@ -1,4 +1,4 @@
-""" pynchon.models.plugins.provider """
+"""pynchon.models.plugins.provider"""
 
 from fleks import tagging
 

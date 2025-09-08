@@ -1,12 +1,11 @@
-""" pynchon.abcs.path
-"""
+"""pynchon.abcs.path"""
 
 import os
 from fnmatch import fnmatch
 
-from fleks.models import JSONEncoder
-
 from pynchon.util import lme, typing
+
+from fleks.models import JSONEncoder
 
 LOGGER = lme.get_logger(__name__)
 

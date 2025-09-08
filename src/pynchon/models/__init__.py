@@ -1,5 +1,4 @@
-""" pynchon.models
-"""
+"""pynchon.models"""
 
 from .planner import *  # noqa
 from .planning import Action, Goal, Plan  # noqa

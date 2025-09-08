@@ -1,5 +1,4 @@
-""" pynchon
-"""
+"""pynchon"""
 
 # NB: this should have been set by CI immediately
 # before pypi-upload.  but the `except` below might

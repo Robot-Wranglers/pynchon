@@ -1,5 +1,4 @@
-""" pynchon.util.text CLI
-"""
+"""pynchon.util.text CLI"""
 
 from pynchon.cli import common
 

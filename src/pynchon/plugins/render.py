@@ -1,5 +1,4 @@
-""" pynchon.plugins.render
-"""
+"""pynchon.plugins.render"""
 
 from pynchon import models
 

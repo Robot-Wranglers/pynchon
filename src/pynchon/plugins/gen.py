@@ -1,5 +1,4 @@
-""" pynchon.plugins.gen
-"""
+"""pynchon.plugins.gen"""
 
 from pynchon import abcs, cli, models  # noqa
 from pynchon.util import lme, typing

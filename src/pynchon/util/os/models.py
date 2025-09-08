@@ -1,5 +1,4 @@
-""" pynchon.util.os.models
-"""
+"""pynchon.util.os.models"""
 
 # import os
 # import subprocess

@@ -1,9 +1,8 @@
-""" pynchon.plugins.tests
-"""
-
-from fleks import typing
+"""pynchon.plugins.tests"""
 
 from pynchon.util import lme
+
+from fleks import typing
 
 from pynchon import abcs, events, models  # noqa
 

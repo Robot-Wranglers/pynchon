@@ -1,13 +1,13 @@
-""" pynchon.models.planner """
+"""pynchon.models.planner"""
 
 import typing
+
+from pynchon import abcs, cli
+from pynchon.app import app
 
 from fleks import tagging
 from memoized_property import memoized_property
 from fleks.util.tagging import tags
-
-from pynchon import abcs, cli
-from pynchon.app import app
 
 from . import planning
 from .plugins import BasePlugin

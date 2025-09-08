@@ -1,8 +1,8 @@
-""" pynchon.codemod.docstrings.javadoc """
-
-import libcst as cst
+"""pynchon.codemod.docstrings.javadoc"""
 
 from pynchon.util import lme
+
+import libcst as cst
 
 from .base import base
 

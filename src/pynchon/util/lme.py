@@ -1,12 +1,11 @@
-""" pynchon.util.lme
-"""
+"""pynchon.util.lme"""
 
 import logging
 
+from pynchon import constants
+
 from rich.logging import RichHandler
 from fleks.util.console import is_notebook
-
-from pynchon import constants
 
 from fleks.util.lme import COLOR_SYSTEM, CONSOLE, THEME, set_global_level  # noqa
 

@@ -1,17 +1,17 @@
-""" pynchon.plugins.mermaid
-    Examples:
-        # render and display with imgcat
-        pynchon mmd render docs/trifecta.mmd --output - | imgcat
-    See also:
-        * https://github.com/mermaid-js/mermaid-cli
-        * https://mermaid.live/
+"""pynchon.plugins.mermaid
+Examples:
+    # render and display with imgcat
+    pynchon mmd render docs/trifecta.mmd --output - | imgcat
+See also:
+    * https://github.com/mermaid-js/mermaid-cli
+    * https://mermaid.live/
 """
 
 import os
 
-from fleks import cli, tagging
-
 from pynchon.models.planner import Planner
+
+from fleks import cli, tagging
 
 from pynchon import abcs, events, models  # noqa
 from pynchon.util import files, lme, typing  # noqa
@@ -85,10 +85,10 @@ class Mermaid(models.DiagramTool, Planner):
         # FIXME: move this stuff to shil lib?
         from uuid import uuid4
 
+        from pynchon.util.os import invoke
+
         import python_on_whales
         from python_on_whales import docker
-
-        from pynchon.util.os import invoke
 
         special = output in ["-", "/dev/stdout"]
         post_op = ""

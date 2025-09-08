@@ -1,16 +1,15 @@
-""" pynchon.app
-"""
+"""pynchon.app"""
 
 import sys
 import atexit
+
+from pynchon import events
+from pynchon.util import lme
 
 import enlighten
 from fleks import app as fleks_app
 from fleks.app import AppBase, Console, Text, Theme
 from memoized_property import memoized_property
-
-from pynchon import events
-from pynchon.util import lme
 
 # from fleks.app import (AppBase, AppEvents)
 

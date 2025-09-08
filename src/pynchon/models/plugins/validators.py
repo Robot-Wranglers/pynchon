@@ -1,6 +1,6 @@
-""" pynchon.models.validators
+"""pynchon.models.validators
 
-    FIXME: ntuple struct for vdata
+FIXME: ntuple struct for vdata
 """
 
 import fleks

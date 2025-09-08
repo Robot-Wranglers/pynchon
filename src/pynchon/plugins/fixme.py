@@ -1,5 +1,4 @@
-""" pynchon.plugins.fixme
-"""
+"""pynchon.plugins.fixme"""
 
 from fnmatch import fnmatch
 

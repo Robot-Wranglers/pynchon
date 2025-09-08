@@ -1,4 +1,4 @@
-""" pynchon.plugins.globals """
+"""pynchon.plugins.globals"""
 
 from pynchon import abcs, models
 

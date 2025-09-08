@@ -1,5 +1,4 @@
-""" pynchon.api.project
-"""
+"""pynchon.api.project"""
 
 from pynchon.util import lme, text, typing
 

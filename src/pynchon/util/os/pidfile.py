@@ -1,2 +1,1 @@
-""" pynchon.util.os.pidfile
-"""
+"""pynchon.util.os.pidfile"""

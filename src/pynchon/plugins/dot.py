@@ -1,9 +1,8 @@
-""" pynchon.plugins.dot
-"""
-
-from fleks import cli
+"""pynchon.plugins.dot"""
 
 from pynchon.util.os import invoke
+
+from fleks import cli
 
 from pynchon import abcs, api, models  # noqa
 from pynchon.util import files, lme, typing  # noqa

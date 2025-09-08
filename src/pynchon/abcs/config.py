@@ -1,2 +1,1 @@
-""" pynchon.abcs.config
-"""
+"""pynchon.abcs.config"""

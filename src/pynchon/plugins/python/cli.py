@@ -1,16 +1,15 @@
-""" pynchon.plugins.python.cli
-"""
+"""pynchon.plugins.python.cli"""
 
 import glob
 import importlib
+
+from pynchon import abcs, api
+from pynchon.models.python import EntrypointMetadata
 
 import shimport
 from fleks import cli, tagging
 from fleks.util.click import click_recursive_help
 from memoized_property import memoized_property
-
-from pynchon import abcs, api
-from pynchon.models.python import EntrypointMetadata
 
 from .common import PythonPlanner
 

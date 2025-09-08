@@ -1,5 +1,4 @@
-""" pynchon.constants
-"""
+"""pynchon.constants"""
 
 import os
 from pathlib import Path

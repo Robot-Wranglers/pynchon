@@ -1,5 +1,4 @@
-""" pynchon.util.docker
-"""
+"""pynchon.util.docker"""
 
 import functools
 

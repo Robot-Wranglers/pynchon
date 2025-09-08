@@ -1,4 +1,4 @@
-""" pynchon.__main__ """
+"""pynchon.__main__"""
 
 from pynchon.bin import entry
 

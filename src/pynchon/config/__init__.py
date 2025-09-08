@@ -1,13 +1,12 @@
-""" pynchon.config
-"""
+"""pynchon.config"""
 
 # from pynchon import abcs
-from fleks.plugin import Meta
-
 from pynchon.api import render
 from pynchon.app import app
 from pynchon.core import Config as CoreConfig
 from pynchon.util import lme  # typing
+
+from fleks.plugin import Meta
 
 from pynchon.plugins.git import GitConfig  # noqa
 

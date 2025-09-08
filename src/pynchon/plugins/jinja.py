@@ -1,9 +1,8 @@
-""" pynchon.plugins.jinja
-"""
-
-from fleks import tagging
+"""pynchon.plugins.jinja"""
 
 from pynchon import abcs, api, cli
+
+from fleks import tagging
 
 from pynchon.util import files, lme, text, typing  # noqa
 

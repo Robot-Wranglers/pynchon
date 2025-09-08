@@ -1,5 +1,4 @@
-""" pynchon.plugins.vhs
-"""
+"""pynchon.plugins.vhs"""
 
 from fleks import cli, tagging
 

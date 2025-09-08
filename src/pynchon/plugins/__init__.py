@@ -1,5 +1,4 @@
-""" pynchon.plugins
-"""
+"""pynchon.plugins"""
 
 import collections
 

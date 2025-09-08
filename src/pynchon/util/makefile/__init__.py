@@ -1,5 +1,4 @@
-""" pynchon.util.makefile
-"""
+"""pynchon.util.makefile"""
 
 import os
 import re

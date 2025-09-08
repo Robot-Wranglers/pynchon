@@ -1,17 +1,16 @@
-""" pynchon.util.complexity
-"""
+"""pynchon.util.complexity"""
 
 import os
 import ast
 import sys
 from collections import OrderedDict
 
-import griffe
-import mccabe
-
 from pynchon import annotate, constants
 from pynchon.abcs import Path
 from pynchon.util import lme
+
+import griffe
+import mccabe
 
 WORKING_DIR = Path(".")
 LOGGER = lme.get_logger(__name__)

@@ -1,5 +1,4 @@
-""" setup.py for {{name}}
-"""
+"""setup.py for {{name}}"""
 
 import os
 

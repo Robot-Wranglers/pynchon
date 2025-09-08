@@ -1,5 +1,4 @@
-""" pynchon.plugins.src
-"""
+"""pynchon.plugins.src"""
 
 import fnmatch
 

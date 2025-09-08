@@ -1,6 +1,6 @@
-""" pynchon.plugins.python.models
+"""pynchon.plugins.python.models
 
-    Umbrella for different python-related plugins
+Umbrella for different python-related plugins
 """
 
 from .api import PythonAPI  # noqa

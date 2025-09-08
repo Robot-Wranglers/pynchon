@@ -1,13 +1,12 @@
-""" pynchon.plugins.python.platform:
-"""
+"""pynchon.plugins.python.platform:"""
 
 import platform as stdlib_platform
-
-from fleks import tagging
 
 from pynchon import abcs, cli
 from pynchon.util import lme, python, typing
 from pynchon.util.os import invoke
+
+from fleks import tagging
 
 from .common import PythonPlanner
 

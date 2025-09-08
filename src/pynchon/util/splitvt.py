@@ -1,2 +1,1 @@
-""" pynchon.util.splitvt
-"""
+"""pynchon.util.splitvt"""

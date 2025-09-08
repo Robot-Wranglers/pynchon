@@ -1,4 +1,4 @@
-""" pynchon.util.events """
+"""pynchon.util.events"""
 
 import functools
 import collections

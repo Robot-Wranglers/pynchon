@@ -1,5 +1,4 @@
-""" pynchon.plugins.scaffolding
-"""
+"""pynchon.plugins.scaffolding"""
 
 import os
 

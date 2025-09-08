@@ -1,9 +1,8 @@
-""" pynchon.util.makefile CLI
-"""
-
-import shimport
+"""pynchon.util.makefile CLI"""
 
 from pynchon.cli import common
+
+import shimport
 
 from pynchon.util import lme, typing  # noqa
 

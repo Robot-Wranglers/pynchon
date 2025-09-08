@@ -1,5 +1,4 @@
-""" pynchon.codemod.commands.docstrings
-"""
+"""pynchon.codemod.commands.docstrings"""
 
 from .base import base  # noqa
 

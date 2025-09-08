@@ -1,2 +1,1 @@
-""" pynchon.util.console.__init__
-"""
+"""pynchon.util.console.__init__"""

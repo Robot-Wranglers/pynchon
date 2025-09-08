@@ -1,5 +1,4 @@
-""" pynchon.abcs
-"""
+"""pynchon.abcs"""
 
 from fleks.config import Config as FleksConfig  # noqa
 

@@ -1,5 +1,4 @@
-""" pynchon.util.testing
-"""
+"""pynchon.util.testing"""
 
 from pathlib import Path
 

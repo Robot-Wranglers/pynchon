@@ -1,5 +1,4 @@
-""" pynchon.plugins.__template__
-"""
+"""pynchon.plugins.__template__"""
 
 from pynchon import abcs, cli, events, models  # noqa
 from pynchon.util import lme, typing  # noqa

@@ -2,11 +2,10 @@
 pynchon: a utility for docs generation and template-rendering
 """
 
+from pynchon import cli
+
 import fleks
 import shimport
-from trogon import tui
-
-from pynchon import cli
 
 from pynchon.util import lme, typing  # noqa
 
@@ -24,7 +23,6 @@ class RootGroup(fleks.cli.RootGroup):
         return bin.default
 
 
-@tui()
 @click.version_option()
 @click.option("--plugins", "-p", help="shortcut for `--set plugins=...`")
 @click.option("--set", "set_config", help="config overrides")

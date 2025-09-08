@@ -1,5 +1,4 @@
-""" pynchon.tagging
-"""
+"""pynchon.tagging"""
 
 import shimport
 

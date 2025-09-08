@@ -1,12 +1,11 @@
-""" pynchon.plugins.plugins
-"""
-
-from fleks import tagging
+"""pynchon.plugins.plugins"""
 
 from pynchon import abcs, cli, models
 from pynchon.api import render
 from pynchon.util.os import invoke
 from pynchon.util.text import dumps
+
+from fleks import tagging
 
 from pynchon.util import lme, typing  # noqa
 

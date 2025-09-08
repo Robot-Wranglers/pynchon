@@ -1,13 +1,12 @@
-""" pynchon.plugins.docs.main
-"""
+"""pynchon.plugins.docs.main"""
+
+from pynchon.util.os import invoke
+from pynchon.plugins.docs.opener import OpenerMixin
 
 import fleks
 import gripe
 from fleks import cli, tagging
 from memoized_property import memoized_property
-
-from pynchon.util.os import invoke
-from pynchon.plugins.docs.opener import OpenerMixin
 
 from pynchon import abcs, api, events, models  # noqa
 from pynchon.util import files, lme, typing  # noqa

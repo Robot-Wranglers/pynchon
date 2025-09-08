@@ -1,11 +1,10 @@
-""" pynchon.plugins.python.api
-"""
-
-from fleks import cli, tagging
+"""pynchon.plugins.python.api"""
 
 from pynchon import abcs
 from pynchon.api import render
 from pynchon.util import complexity, lme, typing
+
+from fleks import cli, tagging
 
 from .common import PythonPlanner
 

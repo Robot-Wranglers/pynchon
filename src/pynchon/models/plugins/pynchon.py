@@ -1,12 +1,12 @@
-""" pynchon.models.plugins.pynchon """
+"""pynchon.models.plugins.pynchon"""
 
 import collections
+
+from pynchon.plugins import util as plugins_util
 
 import fleks
 import shimport
 from fleks import tagging
-
-from pynchon.plugins import util as plugins_util
 
 from . import validators
 

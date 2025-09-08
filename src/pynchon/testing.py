@@ -1,4 +1,4 @@
-""" pynchon.testing
+"""pynchon.testing
 
 WARNING: this file exists so that some things can be shared across
 the different test suites (units, integration, smoke-tests) which

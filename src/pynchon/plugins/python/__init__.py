@@ -1,6 +1,6 @@
-""" pynchon.plugins.python
+"""pynchon.plugins.python
 
-    Umbrella for different python-related plugins
+Umbrella for different python-related plugins
 """
 
 from .models import *  # noqa

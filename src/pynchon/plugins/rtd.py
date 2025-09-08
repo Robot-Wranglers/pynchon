@@ -1,4 +1,4 @@
-""" pynchon.plugins.rtd
+"""pynchon.plugins.rtd
 
-    A read-the-docs[1] plugin.
+A read-the-docs[1] plugin.
 """

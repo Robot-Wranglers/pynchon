@@ -1,5 +1,4 @@
-""" pynchon.models.plugins
-"""
+"""pynchon.models.plugins"""
 
 import typing
 
