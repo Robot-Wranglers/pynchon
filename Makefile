@@ -66,16 +66,6 @@ test: flux.stage/testing \
 	py.test docker.pynchon.test
 
 iterate: clean normalize lint test
-##░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-
-# plan: docs-plan
-# plan-docs: docs-plan
-# docs-plan:
-# 	@# Run from tox, not vice versa 
-# 	pynchon src plan 
-# 	pynchon docs plan
-# 	pynchon python-api plan
-# 	pynchon python-cli plan
 
 docs: docs-apply
 docs-apply apply:

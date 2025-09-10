@@ -30,12 +30,6 @@ class GitHub(models.ToolPlugin):
         repo_name: typing.StringMaybe = typing.Field(default=None)
         repo_ssh_url: typing.StringMaybe = typing.Field(default=None)
         actions_url: typing.StringMaybe = typing.Field(default=None)
-        # branch_name: typing.StringMaybe = typing.Field(default=None)
-
-        # @property
-        # def branch_name(self):
-        #     """URL for serving raw content"""
-        #     return config.git.branch_name
 
         @property
         def actions_url(self) -> str:

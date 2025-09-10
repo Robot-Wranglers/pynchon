@@ -1,5 +1,7 @@
 """pynchon.plugins.docs.main"""
+
 import os
+
 from pynchon.util.os import invoke
 from pynchon.plugins.docs.opener import OpenerMixin
 

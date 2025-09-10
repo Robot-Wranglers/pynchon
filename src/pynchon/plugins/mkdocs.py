@@ -85,16 +85,15 @@ class MkdocsPluginConfig(abcs.Config):
                     config=cfg,
                     title=None,
                 )
-                pg.read_source(cfg)
                 pmeta_d = dict(
-                    title=pg.meta.pop("title", pg.title),
+                    title=pg.meta.pop("title", pg.title or ''),
                     # relative_url=pg.url,
                     relative_url=f"{self.site_relative_url}/{pg.url}",
                     path=pfile.absolute(),
                     rel_path=str(rel_pfile),
                     tags=pg.meta.pop("tags", []),
                     draft=any([pg.meta.pop("draft", False), "draft" in str(rel_pfile)]),
-                    **pg.meta,  # **dict(pg.title)},
+                    **pg.meta,
                 )
                 pmeta = MkdocsPage(**pmeta_d)
                 pages.append(pmeta)
